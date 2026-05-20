@@ -1,0 +1,31 @@
+name: Generate Utya Voice Test
+
+on:
+  workflow_dispatch: # Позволяет запускать вручную кнопкой в браузере
+
+jobs:
+  generate-voice:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Проверка репозитория
+      uses: actions/checkout@v4
+
+    - name: Настройка Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Установка зависимостей
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Запуск генерации голоса Ути
+      run: python test_voice.py
+
+    - name: Выгрузка готового аудио
+      uses: actions/upload-artifact@v4
+      with:
+        name: utya-voice-audio
+        path: utya_test.wav
