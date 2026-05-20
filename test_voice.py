@@ -16,7 +16,7 @@ wav, duration = tts.synthesize(
     lang="ru",
     voice_style=style,
     total_steps=10,
-    speed=0.6 
+    speed=0.7 
 )
 
 final_file = "utya_test.wav"
