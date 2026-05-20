@@ -16,13 +16,12 @@ wav, duration = tts.synthesize(
     lang="ru",
     voice_style=style,
     total_steps=10,
-    speed=0.7 
+    speed=0.7            # Минимально разрешенная скорость
 )
 
 final_file = "utya_test.wav"
 
-# МАГИЯ ЗДЕСЬ: Базовая частота 44100. 
-# Сохраняем с частотой 60000 - это поднимет тон голоса и сделает его сказочным!
-sf.write(final_file, wav.squeeze(), 60000)
+# Частота 54000 даст мультяшный тон, но не сделает речь слишком быстрой
+sf.write(final_file, wav.squeeze(), 54000)
 
 print(f"Готово! Мультяшная Утя сохранена как {final_file}")
