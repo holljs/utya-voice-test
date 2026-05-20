@@ -6,7 +6,7 @@ print("Инициализация Supertonic 3 TTS...")
 tts = TTS(auto_download=True)
 
 # Выбираем женский голос F1 (наша Утя)
-style = tts.get_voice_style(voice_name="F3")
+style = tts.get_voice_style(voice_name="preset_voice_f.supertonic-3.json")
 
 # Текст с тегом эмоции <laugh> для смешка/радости
 text = "Привет, мой хороший! <laugh> Утя очень рада тебя видеть! Давай скорее играть?"
