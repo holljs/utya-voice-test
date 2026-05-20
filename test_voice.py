@@ -6,7 +6,7 @@ print("Инициализация Supertonic 3 TTS...")
 tts = TTS(auto_download=True)
 
 # Выбираем женский голос F1 (наша Утя)
-style = tts.get_voice_style(voice_name="F1")
+style = tts.get_voice_style(voice_name="F3")
 
 # Текст с тегом эмоции <laugh> для смешка/радости
 text = "Привет, мой хороший! <laugh> Утя очень рада тебя видеть! Давай скорее играть?"
@@ -17,7 +17,7 @@ wav, duration = tts.synthesize(
     lang="ru",
     voice_style=style,
     total_steps=10,
-    speed=1.0
+    speed=1.18
 )
 
 output_file = "utya_test.wav"
