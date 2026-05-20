@@ -2,24 +2,31 @@ import os
 from supertonic import TTS
 
 print("Инициализация Supertonic 3 TTS...")
-# Автоматически скачает легкие веса модели (~99 МБ)
 tts = TTS(auto_download=True)
 
-# Выбираем женский голос F1 (наша Утя)
-style = tts.get_voice_style(voice_name="preset_voice_f.supertonic-3.json")
+# Берем самый высокий из доступных женских голосов (F4)
+style = tts.get_voice_style(voice_name="F4")
 
-# Текст с тегом эмоции <laugh> для смешка/радости
 text = "Привет, мой хороший! <laugh> Утя очень рада тебя видеть! Давай скорее играть?"
 
-print(f"Синтез текста: {text}")
+print("Синтез базового голоса...")
 wav, duration = tts.synthesize(
     text=text,
     lang="ru",
     voice_style=style,
     total_steps=10,
-    speed=1.18
+    speed=1.1 # Чуть ускоряем базовый темп
 )
 
-output_file = "utya_test.wav"
-tts.save_audio(wav, output_file)
-print(f"Успех! Аудиофайл сохранен как {output_file} (Длительность: {duration[0]:.2f} сек.)")
+# Сохраняем промежуточный вариант
+temp_file = "temp_adult.wav"
+tts.save_audio(wav, temp_file)
+
+print("Применяем магию: делаем голос детским (Pitch Shift)...")
+final_file = "utya_test.wav"
+
+# Команда ffmpeg для поднятия тона (коэффициент 1.35 делает голос мультяшным)
+# asetrate поднимает тон, atempo возвращает нормальную скорость произношения
+os.system(f'ffmpeg -y -i {temp_file} -af "asetrate=44100*1.35,aresample=44100,atempo=1/1.35" {final_file}')
+
+print(f"Готово! Мультяшная Утя сохранена как {final_file}")
