@@ -24,8 +24,8 @@ jobs:
     - name: Запуск генерации голоса Ути
       run: python test_voice.py
 
-    - name: Выгрузка готового аудио
+    - name: Upload audio artifact
       uses: actions/upload-artifact@v4
       with:
-        name: utya-voice-audio
-        path: utya_test.wav
+        name: utya-voice
+        path: '*.wav'
