@@ -7,33 +7,23 @@ tts = TTS(auto_download=True)
 style = tts.get_voice_style(voice_name="F4")
 
 phrases = {
-    "na1.wav": "Кóшка.",
-    "na2.wav": "Собáка.",
-    "na3.wav": "Корóва.",
-    "na4.wav": "Лóшадь.",
-    "na5.wav": "Овцá.",
-    "na6.wav": "Свинья́.",
-    "na7.wav": "Козá.",
-    "na8.wav": "Волк.",
-    "na9.wav": "Гусь.",
-    "na10.wav": "Лягуушка.",  # Спасительное дублирование "у"
-    "na11.wav": "Лев.",
-    "na12.wav": "Тигр.",
-    "na13.wav": "Змея́.",
-    "na14.wav": "Комáр.",
-    "na15.wav": "Пчелá.",
-    "na16.wav": "Лисá.",
-    "na17.wav": "Ёжик.",
-    "na18.wav": "Куурица.",    # Спасительное дублирование "у"
-    "na19.wav": "Петушóк.",
-    "na20.wav": "Ворóна.",
-    "na21.wav": "О́слик.",
-    "na22.wav": "Совá.",
-    "na23.wav": "Слон.",
-    "na24.wav": "Мы́шка."
+    # Фразы для игры "Цвета"
+    "color_intro.wav": "Помоги утóчкам найти свои лóдочки!",
+    "color_win.wav": "Урá! Все утóчки в лóдочках!",
+    "color_correct.wav": "Прáвильно!",
+    
+    # Названия 8 цветов
+    "color_yellow.wav": "Жёлтый.",
+    "color_orange.wav": "Орáнжевый.",
+    "color_red.wav": "Крáсный.",
+    "color_pink.wav": "Рóзовый.",
+    "color_purple.wav": "Фиолéтовый.",
+    "color_blue.wav": "Сýний.",
+    "color_green.wav": "Зелёный.",
+    "color_grey.wav": "Сéрый."
 }
 
-print(f"Начинаем озвучку {len(phrases)} названий...")
+print(f"Начинаем озвучку {len(phrases)} фраз для игры Цвета...")
 
 for filename, text in phrases.items():
     print(f"Синтез: {text} -> {filename}")
@@ -46,4 +36,4 @@ for filename, text in phrases.items():
     )
     sf.write(filename, wav.squeeze(), 54000)
 
-print("✅ Готово! Названия животных без багов успешно сохранены.")
+print("✅ Готово! Все звуки для игры Цвета успешно сохранены.")
