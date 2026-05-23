@@ -9,7 +9,7 @@ style = tts.get_voice_style(voice_name="F4")
 phrases = {
     # Фразы для игры "Цвета"
     "color_intro.wav": "Помоги у́тачкам найти свои ло́дочки!",
-    "color_win.wav": "Ура́! Все у́уточки в ло́дочках!",
+    "color_win.wav": "Ура́! Все у́тачки в ло́дочках!",
     "color_correct.wav": "Прáвильно!",
     
     # Названия 8 цветов
