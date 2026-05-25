@@ -5,34 +5,13 @@ print("Инициализация Supertonic 3 TTS...")
 tts = TTS(auto_download=True)
 style = tts.get_voice_style(voice_name="F4")
 
-# Полный список фраз для игры "Кто что ест?"
-# По вашей просьбе: на букву У ударения НЕ ставятся (никаких ý), на остальные гласные - ставятся.
 phrases = {
-    "f_intro.wav": "Угадáй, кто что ест? Покорми́ живóтных!",
-    "f_yum.wav": "Ам-ням-ням! Вкусно!",
-    "f_win.wav": "Урá! Все живóтные сы́ты!",
-    "f_cat.wav": "Кóшка ест.",
-    "f_dog.wav": "Собáка ест.",
-    "f_cow.wav": "Корóва ест.",
-    "f_horse.wav": "Лóшадь ест.",
-    "f_sheep.wav": "Овцá ест.",
-    "f_pig.wav": "Свинья́ ест.",
-    "f_goat.wav": "Козá ест.",
-    "f_wolf.wav": "Волк ест.",
-    "f_goose.wav": "Гусь ест.",
-    "f_frog.wav": "Лягуушка ест.",
-    "f_lion.wav": "Лев ест.",
-    "f_tiger.wav": "Тигр ест.",
-    "f_bee.wav": "Пчелá ест.",
-    "f_fox.wav": "Лисá ест.",
-    "f_hedgehog.wav": "Ёжик ест.",
-    "f_hen.wav": "Курица ест.",
-    "f_rooster.wav": "Петушóк ест.",
-    "f_donkey.wav": "Ослик ест.",
-    "f_mouse.wav": "Мы́шка ест."
+    "wind_intro.wav": "Сыграем в ветерóк! Поду́й на вертушку что есть си́лы!",
+    "wind_good.wav": "Огó, как крýтится! Ты настоя́щий урагáн!",
+    "wind_more.wav": "Поду́й ещё сильне́е!"
 }
 
-print(f"Запуск озвучки {len(phrases)} фраз для мега-кормления...")
+print(f"Запуск озвучки тренажера дыхания...")
 
 for filename, text in phrases.items():
     print(f"Синтез: {text} -> {filename}")
@@ -45,4 +24,4 @@ for filename, text in phrases.items():
     )
     sf.write(filename, wav.squeeze(), 54000)
 
-print("✅ Готово! Все звуковые файлы для новой комнаты успешно сгенерированы.")
+print("✅ Готово! Звуки для ветерка записаны.")
