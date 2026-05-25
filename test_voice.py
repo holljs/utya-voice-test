@@ -15,12 +15,12 @@ phrases = {
     "color_orange.wav": "Орáнжевый!",
     "color_purple.wav": "Фиолéтовый!",
     "color_pink.wav": "Рóзовый!",
-    "color_brown.wav": "Корúчневый!",
+    "color_brown.wav": "Кориичневый!",
     
     # Служебные звуки
-    "paint_clear.wav": "Чи́сто! Рисуууем занóво!",
+    "paint_clear.wav": "Чи́сто! Рисуууем заново!",
     "paint_good.wav": "Отли́чно получи́лось!",
-    "paint_beautiful.wav": "Как крáсиво!"
+    "paint_beautiful.wav": "Как красиво!"
 }
 
 print(f"Запуск озвучки {len(phrases)} фраз для раскрасок...")
