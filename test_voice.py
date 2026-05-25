@@ -5,13 +5,25 @@ print("Инициализация Supertonic 3 TTS...")
 tts = TTS(auto_download=True)
 style = tts.get_voice_style(voice_name="F4")
 
+# Словарь цветов и фраз для раскраски
 phrases = {
-    "wind_intro.wav": "Сыграем в ветерóк! Подууй на вертушку что есть си́лы!",
-    "wind_good.wav": "Огó, как круутится! Ты настоя́щий урагáн!",
-    "wind_more.wav": "Подууй ещё сильне́е!"
+    # Цвета (названия при выборе)
+    "color_red.wav": "Крáсный!",
+    "color_blue.wav": "Си́ний!",
+    "color_yellow.wav": "Жёлтый!",
+    "color_green.wav": "Зелёный!",
+    "color_orange.wav": "Орáнжевый!",
+    "color_purple.wav": "Фиолéтовый!",
+    "color_pink.wav": "Рóзовый!",
+    "color_brown.wav": "Корúчневый!",
+    
+    # Служебные звуки
+    "paint_clear.wav": "Чи́сто! Рисуууем занóво!",
+    "paint_good.wav": "Отли́чно получи́лось!",
+    "paint_beautiful.wav": "Как крáсиво!"
 }
 
-print(f"Запуск озвучки тренажера дыхания...")
+print(f"Запуск озвучки {len(phrases)} фраз для раскрасок...")
 
 for filename, text in phrases.items():
     print(f"Синтез: {text} -> {filename}")
@@ -24,4 +36,4 @@ for filename, text in phrases.items():
     )
     sf.write(filename, wav.squeeze(), 54000)
 
-print("✅ Готово! Звуки для ветерка записаны.")
+print("✅ Готово! Все звуковые файлы для раскрасок успешно сгенерированы.")
