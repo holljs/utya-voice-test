@@ -1,38 +1,49 @@
-import soundfile as sf
-from supertonic import TTS
-
-print("Инициализация Supertonic 3 TTS...")
-tts = TTS(auto_download=True)
-style = tts.get_voice_style(voice_name="F4")
-
-# Словарь: имя файла -> текст с ударениями (для 'у' под ударением — удвоение)
 phrases = {
-    # ---------- Названия фигур (обучающие карточки) ----------
-    "shape_circle.wav": "Крууг",              # ударение на 'у' -> удваиваем
-    "shape_square.wav": "Квадра́т",
-    "shape_triangle.wav": "Треуго́льник",
-    "shape_rect.wav": "Прямоуго́льник",
-    "shape_star.wav": "Звезда́",
-    "shape_rhombus.wav": "Ро́мб",
+    # ---------- КОМНАТА: СЛОГИ И СЛОВА ----------
+    # Слова целиком (для карточек обучения)
+    "w_lisa.wav": "Лиса́",
+    "w_ryba.wav": "Ры́ба",
+    "w_kasha.wav": "Ка́ша",
+    "w_raketa.wav": "Раке́та",
+    "w_mashina.wav": "Маши́на",
+    "w_sobaka.wav": "Соба́ка",
 
-    # ---------- Игровые реакции ----------
-    "shapes_intro.wav": "Дава́й подберём пра́вильную запла́тку!",
-    "shape_correct.wav": "Пра́вильно!",
-    "shapes_win.wav": "Ура́! Ты спра́вился!",
-    "wrong.wav": "О́й!",
+    # Отдельные слоги (озвучка кирпичиков при нажатии/перетаскивании)
+    "sl_li.wav": "Ли́",
+    "sl_sa.wav": "Са́",
+    "sl_ry.wav": "Ры́",
+    "sl_ba.wav": "Ба́",
+    "sl_ka.wav": "Ка́",
+    "sl_sha.wav": "Ша́",
+    "sl_ra.wav": "Ра́",
+    "sl_ke.wav": "Ке́",
+    "sl_ta.wav": "Та́",
+    "sl_ma.wav": "Ма́",
+    "sl_shi.wav": "Ши́",
+    "sl_na.wav": "На́",
+    "sl_so.wav": "Со́",
+
+    # Системные фразы для Слогов
+    "words_intro.wav": "Собери́ сло́во из кусо́чков!",
+    "words_win.wav": "Гениа́льно! Ты собра́л все слова́!",
+
+    # ---------- КОМНАТА: МЕНТАЛЬНЫЙ СОРОБАН ----------
+    # Инструкции
+    "soroban_intro.wav": "Дава́й посчита́ем на сороба́не! Дви́гай ко́сточки к перекла́дине.",
+    
+    # Озвучка чисел от 1 до 10 у нас уже есть, но если захочешь обновить 
+    # под этот "взрослый" голос F4 — вот они (цифры с 'у' удвоены):
+    "num_1.wav": "Оди́н",
+    "num_2.wav": "Два́",
+    "num_3.wav": "Три́",
+    "num_4.wav": "Четы́ре",
+    "num_5.wav": "Пя́ть",
+    "num_6.wav": "Ше́сть",
+    "num_7.wav": "Се́мь",
+    "num_8.wav": "Во́семь",
+    "num_9.wav": "Де́вять",
+    "num_10.wav": "Де́сять",
+    
+    # Реакция на успех в счёте
+    "soroban_win.wav": "Великоле́пно! Ты счита́ешь как настоя́щий мента́льный матема́тик!"
 }
-
-print(f"Запуск озвучки {len(phrases)} фраз...")
-
-for filename, text in phrases.items():
-    print(f"Синтез: {text} -> {filename}")
-    wav, duration = tts.synthesize(
-        text=text,
-        lang="ru",
-        voice_style=style,
-        total_steps=10,
-        speed=0.7
-    )
-    sf.write(filename, wav.squeeze(), 54000)
-
-print("✅ Готово! Все звуковые файлы для фигур успешно сгенерированы.")
