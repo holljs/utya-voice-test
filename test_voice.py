@@ -1,3 +1,12 @@
+import os
+import soundfile as sf
+from supertonic import TTS
+
+print("Инициализация Supertonic 3 TTS...")
+tts = TTS(auto_download=True)
+style = tts.get_voice_style(voice_name="F4")
+
+# Словарь: имя файла -> текст с ударениями (для 'у' под ударением — удваиваем в 'уу')
 phrases = {
     # ---------- КОМНАТА: СЛОГИ И СЛОВА ----------
     # Слова целиком (для карточек обучения)
@@ -31,8 +40,7 @@ phrases = {
     # Инструкции
     "soroban_intro.wav": "Дава́й посчита́ем на сороба́не! Дви́гай ко́сточки к перекла́дине.",
     
-    # Озвучка чисел от 1 до 10 у нас уже есть, но если захочешь обновить 
-    # под этот "взрослый" голос F4 — вот они (цифры с 'у' удвоены):
+    # Озвучка чисел от 1 до 10 (цифры с 'у' удвоены)
     "num_1.wav": "Оди́н",
     "num_2.wav": "Два́",
     "num_3.wav": "Три́",
@@ -47,3 +55,22 @@ phrases = {
     # Реакция на успех в счёте
     "soroban_win.wav": "Великоле́пно! Ты счита́ешь как настоя́щий мента́льный матема́тик!"
 }
+
+print(f"Запуск озвучки {len(phrases)} фраз...")
+
+for filename, text in phrases.items():
+    print(f"Синтез: {text} -> {filename}")
+    try:
+        wav, duration = tts.synthesize(
+            text=text,
+            lang="ru",
+            voice_style=style,
+            total_steps=10,
+            speed=0.7
+        )
+        # Сохраняем файл на диск
+        sf.write(filename, wav.squeeze(), 54000)
+    except Exception as e:
+        print(f"❌ Ошибка при генерации {filename}: {e}")
+
+print("✅ Успех! Все новые звуковые файлы для 5+ успешно сгенерированы в текущую папку.")
