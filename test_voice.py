@@ -7,6 +7,7 @@ tts = TTS(auto_download=True)
 style = tts.get_voice_style(voice_name="F4")
 
 # ---------- КОМНАТА: УТЯ ДЕЙСТВУЕТ ----------
+phrases = {
     "act_run.wav": "Уутя бежи́т! И я бегуу!",
     "act_swing.wav": "Уутя кача́ется! Ка́ч-ка́ч!",
     "act_wash.wav": "Уутя мо́ется! Бууль-бууль!",
@@ -16,7 +17,7 @@ style = tts.get_voice_style(voice_name="F4")
     "act_talk.wav": "Уутя разгова́ривает! Бла-бла-бла!",
     "act_laugh.wav": "Уутя смеё́тся! Ха-ха-ха!",
     "act_dance.wav": "Уутя танцуует! И я танцуую!"
-} # <--- ВОТ ОНА, ПОТЕРЯВШАЯСЯ СКОБКА!
+} # <--- Теперь всё открыто и закрыто как надо!
 
 print(f"Запуск озвучки {len(phrases)} фраз...")
 
