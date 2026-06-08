@@ -18,9 +18,9 @@ garden_phrases = {
     "g_level9.wav": "Памоги́ Ууте сабра́ть де́вять я́годок клубни́ки!"
 }
 
-print(f"Запуск озвучки {len(quiz_phrases)} фраз...")
+print(f"Запуск озвучки {len(garden_phrases)} фраз...")
 
-for filename, text in quiz_phrases.items():
+for filename, text in garden_phrases.items():
     print(f"Синтез: {text} -> {filename}")
     try:
         wav, duration = tts.synthesize(
@@ -34,4 +34,4 @@ for filename, text in quiz_phrases.items():
     except Exception as e:
         print(f"❌ Ошибка при генерации {filename}: {e}")
 
-print("✅ Успех! Все файлы для 'Нейро-Гения' готовы к скачиванию!")
+print("✅ Успех! Все файлы для 'Нейро-Малыша' готовы к скачиванию!")
