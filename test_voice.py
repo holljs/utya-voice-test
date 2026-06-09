@@ -7,7 +7,7 @@ tts = TTS(auto_download=True)
 style = tts.get_voice_style(voice_name="F4")
 
 garden_phrases = {
-    "g_win.wav": "Ура́! Ве́сь урожа́й со́бран! Ты про́сто молоде́ц!"
+    "g_win.wav": "Урfа́! Ве́сь урfжа́й со́бран! Ты про́сто мfлоде́ц!"
 }
 
 print(f"Запуск озвучки {len(garden_phrases)} фраз...")
