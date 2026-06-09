@@ -90,7 +90,7 @@ for filename, text in quiz_phrases.items():
             lang="ru",
             voice_style=style,
             total_steps=10,
-            speed=0.65 
+            speed=0.7 
         )
         sf.write(filename, wav.squeeze(), 54000)
     except Exception as e:
