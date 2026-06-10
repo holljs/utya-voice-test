@@ -29,7 +29,7 @@ for filename, text in quiz_phrases.items():
             speed=0.7 
         )
         # Вернули правильную частоту 24000!
-         sf.write(filename, wav.squeeze(), 54000)
+        sf.write(filename, wav.squeeze(), 54000)
     except Exception as e:
         print(f"❌ Ошибка при генерации {filename}: {e}")
 
