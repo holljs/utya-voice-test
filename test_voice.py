@@ -47,7 +47,7 @@ quiz_phrases = {
     "w_domik.wav": "Домик! Молодец!",
 
     # === МЯЧИК ===
-    "sl_mya.wav": "МЯА!",
+    "sl_mya.wav": "МйаА!",
     "sl_chik.wav": "ЧИК!",
     "w_myachik.wav": "Мячик! Молодец!",
 
