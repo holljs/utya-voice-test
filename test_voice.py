@@ -63,6 +63,20 @@ quiz_phrases = {
     "sl_ry.wav": "РЫ!",
     "sl_ba.wav": "БА!",
     "w_ryba.wav": "Рыба! Молодец!",
+
+    # === МЫШКА ===
+    "sl_mysh.wav": "МЫШ!",
+    "w_myshka.wav": "Мышка! Молодец!",
+
+    # === КОЗА ===
+    "sl_ko.wav": "КО!",
+    "sl_za.wav": "ЗА!",
+    "w_koza.wav": "Коза! Молодец!",
+
+    # === ОВЦА ===
+    "sl_ov.wav": "ОВ!",
+    "sl_tsa.wav": "ЦА!",
+    "w_ovtsa.wav": "Овца! Молодец!",
     
     # === ВВОДНАЯ ФРАЗА КОМНАТЫ ===
     "words_intro.wav": "Собери картинку из кусочков!"
@@ -80,7 +94,7 @@ for filename, text in quiz_phrases.items():
             total_steps=10,
             speed=0.7 
         )
-        # Магия создания голоса Ути: частота 54000!
+        # Магия Ути-Те (частота 54000)
         sf.write(filename, wav.squeeze(), 54000)
     except Exception as e:
         print(f"❌ Ошибка при генерации {filename}: {e}")
