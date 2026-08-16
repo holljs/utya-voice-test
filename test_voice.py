@@ -30,16 +30,9 @@ kolobok_phrases = {
     "kb_step7_final.wav": "Вот и ска́зочке коне́ц, а кто игра́л и слуушал — тот су́пер-молоде́ц!",
 }
 
-output_dir = "/var/www/neuro-malysh-backend/audio_assets/tales"
-os.makedirs(output_dir, exist_ok=True)
-
-# Определяем родную частоту из TTS (по умолчанию 44100)
-sample_rate = getattr(tts, 'sample_rate', 44100)
-
-print(f"Запуск синтеза {len(kolobok_phrases)} файлов...")
+print(f"Запуск синтеза {len(kolobok_phrases)} файлов для сказки «Утя-Колобок»...")
 
 for filename, text in kolobok_phrases.items():
-    filepath = os.path.join(output_dir, filename)
     print(f"Генерация: {filename}")
     try:
         wav, duration = tts.synthesize(
@@ -49,8 +42,8 @@ for filename, text in kolobok_phrases.items():
             total_steps=10,
             speed=0.78
         )
-        sf.write(filepath, wav.squeeze(), sample_rate)
+        sf.write(filename, wav.squeeze(), 54000)
     except Exception as e:
         print(f"❌ Ошибка в {filename}: {e}")
 
-print("✅ Все аудиофайлы для сказки успешно сгенерированы!")
+print("✅ Все аудиофайлы для сказки «Утя-Колобок» полностью готовы!")
